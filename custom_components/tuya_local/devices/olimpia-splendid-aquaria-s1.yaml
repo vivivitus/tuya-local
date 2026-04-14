@@ -52,11 +52,11 @@ entities:
         name: speed
         mapping:
           - dps_val: LOW
-            value: 1
+            value: "1"
           - dps_val: MID
-            value: 2
+            value: "2"
           - dps_val: HIGH
-            value: 3
+            value: "3"
       - id: 8
         type: boolean
         name: Oscillation

@@ -47,20 +47,22 @@ entities:
         class: measurement
   - entity: fan
     dps:
+      - id: 1
+          type: boolean
+          name: switch
       - id: 6
         type: string
         name: speed
         mapping:
           - dps_val: LOW
-            value: 1
+            value: "1"
           - dps_val: MID
-            value: 2
+            value: "2"
           - dps_val: HIGH
-            value: 3
+            value: "3"
       - id: 8
         type: boolean
-        name: Oscillation
-        icon: mdi:arrow-up-down
+        name: oscillate
   - entity: lock
     translation_key: child_lock
     category: config
@@ -69,11 +71,16 @@ entities:
         type: boolean
         name: lock
   - entity: binary_sensor
-    translation_key: fault
+    class: problem
+    category: diagnostic
     dps:
       - id: 11
-        type: boolean
+        type: bitfield
         name: sensor
+        mapping:
+          - dps_val: 0
+            value: false
+          - value: true
   - entity: light
     translation_key: led
     category: config
@@ -97,12 +104,14 @@ entities:
           - step: 1
   - entity: binary_sensor
     translation_key: tank_full
+    category: diagnostic
     dps:
       - id: 107
         type: boolean
         name: sensor
   - entity: binary_sensor
     translation_key: defrost
+    category: diagnostic
     dps:
       - id: 108
         type: boolean
