@@ -1,0 +1,117 @@
+name: Dehumidifier
+products:
+  - id: bf8e9d0ad34c8a10dboikx
+    manufacturer: Olimpia
+    model: "AQUARIA S1"
+entities:
+  - entity: humidifier
+    class: dehumidifier
+    translation_only_key: extended
+    dps:
+      - id: 1
+        name: switch
+        type: boolean
+      - id: 2
+        type: string
+        name: mode
+        mapping:
+          - dps_val: "1"
+            value: normal
+          - dps_val: "2"
+            value: laundry
+      - id: 3
+        name: current_humidity
+        type: integer
+      - id: 4
+        name: humidity
+        type: integer
+        range:
+          min: 25
+          max: 90
+        mapping:
+          - step: 5
+      - id: 107
+        type: boolean
+        name: unknown_107
+        # Probably one boolean is defrost indicator, the other may be tank?
+      - id: 108
+        type: boolean
+        name: unknown_108
+  - entity: sensor
+    class: humidity
+    dps:
+      - id: 3
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: fan
+    dps:
+      - id: 6
+        type: string
+        name: speed
+        mapping:
+          - dps_val: LOW
+            value: 1
+          - dps_val: MID
+            value: 2
+          - dps_val: HIGH
+            value: 3
+      - id: 8
+        type: boolean
+        name: Oscillation
+        icon: mdi:arrow-up-down
+  - entity: lock
+    translation_key: child_lock
+    category: config
+    dps:
+      - id: 7
+        type: boolean
+        name: lock
+  - entity: binary_sensor
+    translation_key: fault
+    dps:
+      - id: 11
+        type: boolean
+        name: sensor
+  - entity: light
+    translation_key: led
+    category: config
+    dps:
+      - id: 101
+        name: switch
+        type: boolean
+  - entity: number
+    category: config
+    class: duration
+    translation_key: timer
+    dps:
+      - id: 106
+        name: value
+        type: integer
+        unit: h
+        range:
+          min: 0
+          max: 24
+        mapping:
+          - step: 1
+  - entity: binary_sensor
+    translation_key: tank_full
+    dps:
+      - id: 107
+        type: boolean
+        name: sensor
+  - entity: binary_sensor
+    translation_key: defrost
+    dps:
+      - id: 108
+        type: boolean
+        name: sensor
+  - entity: sensor
+    class: temperature
+    dps:
+      - id: 110
+        type: integer
+        name: sensor
+        unit: C
+        class: measurement
