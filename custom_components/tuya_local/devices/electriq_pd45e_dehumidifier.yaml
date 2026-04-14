@@ -47,9 +47,6 @@ entities:
         class: measurement
   - entity: fan
     dps:
-      - id: 1
-          type: boolean
-          name: switch
       - id: 6
         type: string
         name: speed
