@@ -1,8 +1,8 @@
 name: Dehumidifier
 products:
-  - id: bf8e9d0ad34c8a10dboikx
-    manufacturer: Olimpia
-    model: "AQUARIA S1"
+  - id: 75174020a4e57c1945ca
+    manufacturer: Electriq
+    model: PD45E
 entities:
   - entity: humidifier
     class: dehumidifier
