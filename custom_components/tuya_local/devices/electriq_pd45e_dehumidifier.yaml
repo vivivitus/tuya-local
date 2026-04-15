@@ -19,6 +19,8 @@ entities:
             value: normal
           - dps_val: "2"
             value: laundry
+          - dps_val: "3"
+            value: purify
       - id: 3
         name: current_humidity
         type: integer
@@ -26,10 +28,17 @@ entities:
         name: humidity
         type: integer
         range:
-          min: 25
-          max: 90
+          min: 35
+          max: 80
         mapping:
           - step: 5
+      - id: 11
+        type: integer
+        name: unknown_11
+        # Probably one of these integers is timer, the other fault_code
+      - id: 106
+        type: integer
+        name: unknown_106
       - id: 107
         type: boolean
         name: unknown_107
@@ -37,26 +46,19 @@ entities:
       - id: 108
         type: boolean
         name: unknown_108
-  - entity: sensor
-    class: humidity
-    dps:
-      - id: 3
-        type: integer
-        name: sensor
-        unit: "%"
-        class: measurement
   - entity: fan
     dps:
+      - id: 1
+        type: boolean
+        name: switch
       - id: 6
         type: string
-        name: fan_mode
+        name: speed
         mapping:
-          - dps_val: Low
-            value: "1"
-          - dps_val: Medium
-            value: "2"
-          - dps_val: High
-            value: "3"
+          - dps_val: "1"
+            value: 50
+          - dps_val: "2"
+            value: 100
       - id: 8
         type: boolean
         name: oscillate
@@ -67,50 +69,6 @@ entities:
       - id: 7
         type: boolean
         name: lock
-  - entity: binary_sensor
-    class: problem
-    category: diagnostic
-    icon: "mdi:alert"
-    dps:
-      - id: 11
-        type: boolean
-        name: sensor
-  - entity: light
-    translation_key: led
-    category: config
-    dps:
-      - id: 101
-        name: switch
-        type: boolean
-  - entity: number
-    category: config
-    class: duration
-    translation_key: timer
-    dps:
-      - id: 106
-        name: value
-        type: integer
-        unit: h
-        range:
-          min: 0
-          max: 24
-        mapping:
-          - step: 1
-  - entity: binary_sensor
-    translation_key: tank_full
-    category: diagnostic
-    dps:
-      - id: 107
-        type: boolean
-        name: sensor
-  - entity: binary_sensor
-    translation_key: defrost
-    category: diagnostic
-    icon: "mdi:snowflake-melt"
-    dps:
-      - id: 108
-        type: boolean
-        name: sensor
   - entity: sensor
     class: temperature
     dps:
@@ -119,3 +77,19 @@ entities:
         name: sensor
         unit: C
         class: measurement
+  - entity: binary_sensor
+    translation_key: tank_full
+    dps:
+      - id: 11
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 2
+            value: true
+          - value: false
+  - entity: binary_sensor
+    translation_key: defrost
+    dps:
+      - id: 108
+        type: boolean
+        name: sensor
