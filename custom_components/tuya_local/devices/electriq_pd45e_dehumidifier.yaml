@@ -48,6 +48,10 @@ entities:
   - entity: fan
     translation_only_key: fan_with_presets
     dps:
+      - id: 1
+          type: boolean
+          name: switch
+          available: false
       - id: 6
         type: string
         name: preset_mode
