@@ -30,13 +30,6 @@ entities:
           max: 90
         mapping:
           - step: 5
-      - id: 107
-        type: boolean
-        name: unknown_107
-        # Probably one boolean is defrost indicator, the other may be tank?
-      - id: 108
-        type: boolean
-        name: unknown_108
   - entity: sensor
     class: humidity
     dps:
@@ -49,9 +42,8 @@ entities:
     translation_only_key: fan_with_presets
     dps:
       - id: 1
-          type: boolean
-          name: switch
-          available: false
+        type: boolean
+        name: switch
       - id: 6
         type: string
         name: preset_mode
