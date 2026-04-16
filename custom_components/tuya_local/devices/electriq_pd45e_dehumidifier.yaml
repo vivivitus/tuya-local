@@ -46,17 +46,18 @@ entities:
         unit: "%"
         class: measurement
   - entity: fan
+    translation_only_key: fan_with_presets
     dps:
       - id: 6
         type: string
-        name: fan_mode
+        name: preset_mode
         mapping:
-          - dps_val: Low
-            value: "1"
-          - dps_val: Medium
-            value: "2"
-          - dps_val: High
-            value: "3"
+          - dps_val: "1"
+            value: low
+          - dps_val: "2"
+            value: medium
+          - dps_val: "3"
+            value: high
       - id: 8
         type: boolean
         name: oscillate
