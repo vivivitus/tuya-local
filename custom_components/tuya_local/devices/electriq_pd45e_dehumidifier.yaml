@@ -1,8 +1,8 @@
 name: Dehumidifier
 products:
-  - id: bf8e9d0ad34c8a10dboikx
+  - id: 1pekxv6pjrvgsggd
     manufacturer: Olimpia
-    model: "AQUARIA S1"
+    model: "AQUARIA S1 20 P"
 entities:
   - entity: humidifier
     class: dehumidifier
